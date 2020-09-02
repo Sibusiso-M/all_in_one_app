@@ -1,0 +1,14 @@
+#Guest Account
+    .Have the Guest change the Guest session name to optional
+    .Has r/w/d rights to events board
+
+#Events page
+    .Displays events board
+
+#Admin page
+    .Could have delete user account rights
+
+#Design index page
+    .Could have delete user account rights
+
+#Log internal system errors

@@ -1,0 +1,32 @@
+Error deleting record: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+01-09-2020 16:28:19: 
+Error deleting record: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+01-09-2020 16:29:17: 
+Error deleting record: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+01-09-2020 16:29:27: 
+Error deleting record: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+01-09-2020 16:35:32: 
+
+### Change in format ###
+16:55:00 01-09-2020 Error deleting record: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+ 
+### Change in format ###
+01-09-2020 17:01:10Error deleting record: 1 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1 
+ 
+01-09-2020 17:13:37Error deleting record: 3You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id =16' at line 1 
+ 
+01-09-2020 17:13:37Error deleting record: 4You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id =16' at line 1 
+ 
+01-09-2020 17:13:37Error deleting record: 5You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+01-09-2020 17:26:40Error deleting record: 4You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+ 
+01-09-2020 17:26:40Error deleting record: 5You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+01-09-2020 17:31:49Error deleting record: 4You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+ 
+01-09-2020 17:31:49Error deleting record: 5You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+01-09-2020 17:36:25Error deleting record: 4You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+ 
+01-09-2020 17:36:25Error deleting record: 5You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE user_id = 16' at line 1 
+01-09-2020 17:51:19Error deleting record: 1 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 
+01-09-2020 17:56:12Error deleting record: 1 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 
+01-09-2020 17:56:52Error deleting record: 1 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 
