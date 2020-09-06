@@ -190,15 +190,15 @@ if (isset($_POST['btnCreateAccount'])) {
     }
 
 //should new user insert well
-    if ($progress) {
+if ($progress) {
         // echo 'closed2';
         if (mysqli_query($conn, $sqlRegistration)) {
             $to = $newEmail;
-            $subject = "Email verification (digitalfundraiser.com)";
+            $subject = "Email verification (project1.visualxprints.com)";
             $headers ='';
             $headers .= "MIME-Version: 1.0" . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headers .= 'From:Digital Fundraiser | Website <digitalfundraiser.com>' . "\r\n";
+            $headers .= 'From:All In One App | Website <visualxprints.com>' . "\r\n";
             $ms ='';
             $ms.="<html>"
                     . "</body>"
@@ -207,8 +207,8 @@ if (isset($_POST['btnCreateAccount'])) {
                     . "</br>"
                     . "</br>";
             $ms.="<div style='padding-top:8px;'>Please click The following link For verifying and activation of your account</div>
-                    <div style='padding-top:10px;'><a href='http://www.project1.visualxprints.com/includes/email_verification.inc.php?code=$activationcode'  target='_blank'>Click Here</a></div>
-                    <div style='padding-top:4px;'>Powered by <a href='digitalfundraiser.com'>digitalfundraiser.com</a></div></div>"
+                    <div style='padding-top:10px;'><a href='https://www.project1.visualxprints.com/includes/email_verification.inc.php?code=$activationcode'  target='_blank'>Click Here</a></div>
+                    <div style='padding-top:4px;'>Powered by <a href='visualxprints.com'>project1.visualxprints.com</a></div></div>"
                     . "</body>"
                     . "</html>";
             mail($to, $subject, $ms, $headers);
