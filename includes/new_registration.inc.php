@@ -1,5 +1,11 @@
 <?php
 
+//PHPMailer classes
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 //ini_set(‘memory_limit’, ‘128M’);
 
 require './conn.inc.php';
@@ -189,29 +195,82 @@ if (isset($_POST['btnCreateAccount'])) {
         }
     }
 
+
+
+
+
+
 //should new user insert well
-if ($progress) {
+    if ($progress) {
         // echo 'closed2';
         if (mysqli_query($conn, $sqlRegistration)) {
-            $to = $newEmail;
-            $subject = "Email verification (project1.visualxprints.com)";
-            $headers ='';
-            $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headers .= 'From:All In One App | Website <visualxprints.com>' . "\r\n";
-            $ms ='';
-            $ms.="<html>"
-                    . "</body>"
-                    . "<div>"
-                    . "<div>Dear $newFirstName,</div>"
-                    . "</br>"
-                    . "</br>";
-            $ms.="<div style='padding-top:8px;'>Please click The following link For verifying and activation of your account</div>
-                    <div style='padding-top:10px;'><a href='https://www.project1.visualxprints.com/includes/email_verification.inc.php?code=$activationcode'  target='_blank'>Click Here</a></div>
-                    <div style='padding-top:4px;'>Powered by <a href='visualxprints.com'>project1.visualxprints.com</a></div></div>"
-                    . "</body>"
-                    . "</html>";
-            mail($to, $subject, $ms, $headers);
+
+//          #   WITH SMTP START   #  
+        require './PHPMailer-master/src/Exception.php';
+        require './PHPMailer-master/src/PHPMailer.php';
+        require '.PHPMailer-master/src/SMTP.php';
+
+        
+        function sendmail($to,$nameto,$subject,$message,$altmess)  {
+          $from  = "xxxx"; 
+          $namefrom = "xxxx";
+          $mail = new PHPMailer();
+          $mail->SMTPDebug = 0;
+          $mail->CharSet = 'UTF-8';
+          $mail->isSMTP();
+          $mail->SMTPAuth   = true;
+          $mail->Host   = "xxxx";  
+          $mail->Port       = 465;
+          $mail->Username   = $from;
+          $mail->Password   = "xxxx";
+          $mail->SMTPSecure = "ssl";
+          $mail->setFrom($from,$namefrom);
+          $mail->addCC($from,$namefrom);
+          $mail->Subject  = $subject;
+          $mail->isHTML();
+          $mail->Body = $message;
+          $mail->AltBody  = $altmess;
+          $mail->addAddress($to, $nameto);
+          return $mail->send();
+        }
+                
+        $to = $newEmail;
+        $nameto = $newFirstName;
+        $subject = "Hashtag Email Verification";
+
+        $ms  ="";
+        $ms .= "Hi $newFirstName,"
+            ."<br>"
+            ."<br>"
+            ."Please click the following link to verify and activate your Hashtag account."
+            ."<br>"
+            ."Link: https://www.project1.visualxprints.com/includes/email_verification.inc.php?code=$activationcode"
+            ."<br>"
+            ."<br>"
+            ."Powered by project1.visualxprints.com";
+         
+        $altmess ="";
+        $altmess.= "Hi $newFirstName,"
+                ."<br>"
+                ."<br>"        
+                ."Please copy, paste and then follow the following link in your URL to verify and activate your Hashtag account."
+                ."<br>"
+                ."Link: https://www.project1.visualxprints.com/includes/email_verification.inc.php?code=$activationcode"
+                ."<br>"
+                ."<br>"
+                ."Powered by project1.visualxprints.com";
+         
+        try{
+            sendmail($to,$nameto,$subject,$ms,$altmess);
+        }
+        catch (Exception $e) {
+        $txt = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}" . mysqli_error($conn);
+        systemLog($txt);
+        }
+        
+
+//          #   WITH SMTP END   #  
+            
         } else {
             header("Localhost: ./registration.php?error=registration"); //error=sqlError2
         }
@@ -329,4 +388,14 @@ function isInvalidFormat($newUsernameParam, $newFirstNameParam, $newLastNamePara
     //   echo 'e9';
     // echo "<br>$result";
     return $result;
+}
+
+//Log system errors to file 
+function systemLog($errorParam) {
+    $location= "From new_registration.inc.php \n";
+    $timeLog = date('d-m-Y H:i:s');
+    $errorParam =  $timeLog. $errorParam . " \n".$location;
+    $logFile = fopen("system_log.txt", "a");
+    fwrite($logFile, $errorParam);
+    fclose($logFile);
 }
